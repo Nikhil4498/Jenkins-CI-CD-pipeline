@@ -4,8 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '''
-                #!/bin/bash
+                sh '''#!/bin/bash
                 python3 -m venv venv
                 source venv/bin/activate
                 pip install --upgrade pip
@@ -16,8 +15,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh '''
-                #!/bin/bash
+                sh '''#!/bin/bash
                 source venv/bin/activate
                 pytest
                 '''
@@ -26,8 +24,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh '''
-                #!/bin/bash
+                sh '''#!/bin/bash
                 source venv/bin/activate
                 nohup python app.py > app.log 2>&1 &
                 '''
