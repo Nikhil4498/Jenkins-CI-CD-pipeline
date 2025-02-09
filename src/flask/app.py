@@ -1534,3 +1534,7 @@ class Flask(App):
         wrapped to apply middleware.
         """
         return self.wsgi_app(environ, start_response)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+
