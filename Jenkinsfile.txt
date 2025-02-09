@@ -1,10 +1,11 @@
 pipeline {
     agent any
 
-    stages {  // Add stages block
+    stages {
         stage('Build') {
             steps {
                 sh '''
+                #!/bin/bash
                 python3 -m venv venv
                 source venv/bin/activate
                 pip install --upgrade pip
@@ -15,17 +16,22 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'pytest'
+                sh '''
+                #!/bin/bash
+                source venv/bin/activate
+                pytest
+                '''
             }
         }
 
         stage('Deploy') {
             steps {
                 sh '''
+                #!/bin/bash
                 source venv/bin/activate
                 nohup python app.py > app.log 2>&1 &
                 '''
             }
         }
-    } // Closing for `stages`
-} // Closing for `pipeline`
+    }
+}
