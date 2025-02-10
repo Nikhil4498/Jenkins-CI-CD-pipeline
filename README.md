@@ -99,6 +99,9 @@ pipeline {
 ### 1.11 Trigger Builds
 Every push to the GitHub repo will trigger the Jenkins pipeline.
 
+![image](https://github.com/user-attachments/assets/29b0f2ca-b67b-448d-8ef1-173df509bd75)
+
+
 ---
 
 ## 2️⃣ GitHub Actions CI/CD Pipeline for Flask App
